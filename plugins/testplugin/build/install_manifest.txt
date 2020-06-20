@@ -1,0 +1,1 @@
+/usr/local/./libtestplugin.so

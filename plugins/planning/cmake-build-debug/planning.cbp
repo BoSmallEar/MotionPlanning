@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="planning"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\openrave-0.9\;CMake Files\..\..\..\..\CGAL-4.14\;CMake Files\..\..\..\..\CGAL-4.14\lib\;CMake Files\..\..\..\..\CGAL-4.14\lib\cmake\;CMake Files\..\..\..\..\CGAL-4.14\lib\cmake\CGAL\;CMake Files\..\..\..\..\CGAL-4.14\cmake\;CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\;CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\config\;CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\config\support\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="planning">
+				<Option output="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/libplanning.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCGAL_HEADER_ONLY=1"/>
+					<Add directory="/usr/local/include/openrave-0.9"/>
+					<Add directory="/home/zzliu/CGAL-4.14/include"/>
+					<Add directory="/home/zzliu/Documents/3D_planning/plugins/planning/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 planning"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="planning/fast">
+				<Option output="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/libplanning.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCGAL_HEADER_ONLY=1"/>
+					<Add directory="/usr/local/include/openrave-0.9"/>
+					<Add directory="/home/zzliu/CGAL-4.14/include"/>
+					<Add directory="/home/zzliu/Documents/3D_planning/plugins/planning/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 planning/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/src/torsoplanning_A*.cpp">
+			<Option target="planning"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../../../usr/local/lib/cmake/openrave-0.9/openrave-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\openrave-0.9\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../../../usr/local/lib/cmake/openrave-0.9/openrave-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\openrave-0.9\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/CGALConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/lib/cmake/CGAL/CGALConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\lib\cmake\CGAL\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_Common.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_CreateSingleSourceCGALProgram.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_GeneratorSpecificSettings.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_Macros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_SCM.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_SetupBoost.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_SetupCGALDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_SetupGMP.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_TweakFindBoost.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_VersionUtils.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_add_test.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_enable_end_of_configuration_hook.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_parse_version_h.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/CGAL_setup_target_dependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/FindGMP.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/FindMPFR.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/zzliu/Documents/3D_planning/plugins/planning/../../../../CGAL-4.14/cmake/modules/config/support/CGAL_test_cpp_version.cpp">
+			<Option virtualFolder="CMake Files\..\..\..\..\CGAL-4.14\cmake\modules\config\support\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

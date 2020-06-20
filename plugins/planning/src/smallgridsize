@@ -1,0 +1,648 @@
+#include "planningtorso_A*.hpp"
+
+
+dReal euclideanDistance(RaveVector<dReal>& start, RaveVector<dReal>& end){
+    RaveVector<dReal> v = start-end;
+    return MATH_SQRT(v.lengthsqr3());
+};
+
+dReal quatDistance(RaveVector<dReal>& start, RaveVector<dReal>& end){
+    return MATH_ACOS(start.dot(end));
+};
+
+bool dReal_equals(const dReal& a,const dReal& b, dReal epsilon ){
+    return abs(a-b)<epsilon;
+};
+
+bool RaveVector_EQ4(RaveVector<dReal>& start, RaveVector<dReal>& end){
+    return dReal_equals(start.x,end.x)&& dReal_equals(start.y,end.y)&& dReal_equals(start.z,end.z)&& dReal_equals(start.w,end.w);
+}
+
+node::node(dReal g,dReal h,RaveVector<dReal> previousPos,int previousQuat,
+RaveVector<dReal> pos,int quat):g(g),h(h),previousPos(previousPos),previousQuat(previousQuat),quat(quat)
+{
+    this->f = g+h;
+    this->pos = RaveVector<dReal>(round(pos.x*10)/10,round(pos.y*10)/10,round(pos.z*10)/10);
+};
+
+GraphHandlePtr drawLineSegment(RaveVector<dReal>& from_vec, RaveVector<dReal> &to_vec,EnvironmentBasePtr& env, RaveVector<dReal> colors){
+    vector<float> line_endpoints = {(float)from_vec[0],(float)from_vec[1],(float)from_vec[2],(float)to_vec[0],(float)to_vec[1],(float)to_vec[2]};
+    return env->drawlinestrip(&(line_endpoints[0]),line_endpoints.size()/3,sizeof(line_endpoints[0])*3,3.0,colors);
+};
+
+GraphHandlePtr drawPoint(RaveVector<dReal>& from_vec,EnvironmentBasePtr& env, RaveVector<dReal> colors){
+    vector<float> line_endpoints = {(float)from_vec[0],(float)from_vec[1],(float)from_vec[2]};
+    return env->plot3(&(line_endpoints[0]),line_endpoints.size()/3,sizeof(line_endpoints[0])*3,3.0,colors);
+};
+
+node::node() = default;
+
+node& node::operator=(const node& other){
+            if (this!=&other){
+                g = other.g;
+                h = other.h;
+                f = other.f;
+                previousPos = other.previousPos;
+                previousQuat = other.previousQuat;
+                pos = RaveVector<dReal>(round(other.pos.x*10)/10,round(other.pos.y*10)/10,round(other.pos.z*10)/10); ;
+                quat = other.quat;
+            }
+            return *this;
+};
+
+
+bool dictKey::operator== (const dictKey& key) const{
+        return dReal_equals(pos.x,key.pos.x)&&dReal_equals(pos.y,key.pos.y)&&dReal_equals(pos.z,key.pos.z)
+        &&quat == key.quat;
+};
+
+dictKey::dictKey( RaveVector<dReal> pos, int quat):pos(pos),quat(quat){};
+dictKey::dictKey() = default;
+vector<dReal> dictKey::toVec(const vector<RaveVector<dReal>>& quats){
+    vector<dReal> vec{pos.x,pos.y,pos.z,quats[quat].x,quats[quat].y,quats[quat].z,quats[quat].w};
+    return vec;
+};
+
+
+size_t hash_fn::operator() (const dictKey& key) const{
+        size_t hash_number = 0;
+		hash_number ^= hash<dReal>()(key.pos.x)+0x9e3779b9 + (hash_number<<6) + (hash_number>>2);
+		hash_number ^= hash<dReal>()(key.pos.y)+0x9e3779b9 + (hash_number<<6) + (hash_number>>2);
+		hash_number ^= hash<dReal>()(key.pos.z)+0x9e3779b9 + (hash_number<<6) + (hash_number>>2);
+		hash_number ^= hash<int>()(key.quat)+0x9e3779b9 + (hash_number<<6) + (hash_number>>2);
+		return hash_number;
+};
+
+bool compNodes::operator()(const shared_ptr<node>& a, const shared_ptr<node>& b) const{
+    return a->f>b->f;
+};
+
+torsoplanning_3D::torsoplanning_3D(EnvironmentBasePtr penv):ModuleBase(penv)
+{
+    __description = "A very simple plugin.";
+    RegisterCommand("numbodies",boost::bind(&torsoplanning_3D::NumBodies,this,_1,_2),"returns bodies");
+    RegisterCommand("load",boost::bind(&torsoplanning_3D::Load,this,_1,_2),"loads a given file");
+    RegisterCommand("generate",boost::bind(&torsoplanning_3D::Generate,this,_1,_2),"generate random objects");
+    RegisterCommand("find",boost::bind(&torsoplanning_3D::Find,this,_1,_2),"find a path from start to goal");
+};
+bool torsoplanning_3D::NumBodies(ostream& sout, istream& sinput)
+{
+    vector<KinBodyPtr> vbodies;
+    GetEnv()->GetBodies(vbodies);
+    sout << vbodies.size();     // publish the results
+    return true;
+};
+bool torsoplanning_3D::Load(ostream& sout, istream& sinput)
+{
+    string filename;
+    sinput >> filename;
+    bool bSuccess = GetEnv()->Load(filename.c_str());
+    sout << "good";   // load the file
+    return bSuccess;
+};
+
+bool torsoplanning_3D::Generate(ostream& sout, istream& sinput){
+    default_random_engine e;
+    uniform_real_distribution<dReal> u (-2,2);
+    int num;
+    sinput>>num;
+    KinBodyPtr body = RaveCreateKinBody(GetEnv(),"");
+    std::vector<AABB> boxes(num);
+    for (int i=0;i<num;i++){
+        boxes[i].pos = RaveVector<dReal>(0.5+0.1*i,0.5+0.1*i,0.5+0.1*i);
+        boxes[i].extents = RaveVector<dReal>(0.1,0.1,0.1);
+    }
+    body->InitFromBoxes(boxes,true);
+    body->SetName("randomobjects");
+    GetEnv()->Add(body);
+    sout<<num;
+    return true;
+}
+
+bool torsoplanning_3D::Find(ostream& sout, istream& sinput){
+    vector<dReal> goal;
+    dReal d;
+    while(sinput>>d){
+        goal.push_back(d);
+    }
+    CollisionCheckerBasePtr checker = RaveCreateCollisionChecker(GetEnv(),"ode");
+    GetEnv()->SetCollisionChecker(checker);
+    RobotBasePtr robot = GetEnv()->GetRobot("torso");
+    vector<dictKey> path = findPathAstar(GetEnv(),robot,goal);
+    if (path.size()==0){
+        sout<<"No solution found";
+        return false;
+    }
+    else{
+        sout<<"Find path successfully!";
+        //TrajectoryBasePtr traj = ConvertPathToTrajectory(robot, path);
+        //robot->GetController()->SetPath(traj);
+        // unlock the environment and wait for the robot to finish
+        //while(!robot->GetController()->IsDone()) {
+        //    boost::this_thread::sleep(boost::posix_time::milliseconds(1));
+        //}
+        return true;
+    }
+}
+
+vector<dictKey> torsoplanning_3D::findPathAstar(EnvironmentBasePtr env,RobotBasePtr robot, vector<dReal>& goal){
+
+    //set timers
+    clock_t checkcollisontime = 0;
+    clock_t inittime = 0;
+    clock_t checkdictionarytime = 0;
+    clock_t updatepqtime = 0;
+    clock_t expandnodetime =0;
+    clock_t temptime = 0;
+
+
+    int vertexcheck = 0;
+
+    //record start time
+    temptime = clock();
+    vector<dReal> start;
+    int num = 1;
+    robot->GetActiveDOFValues(start);
+    RaveVector<dReal> startPos(start[0],start[1],start[2]);
+    RaveVector<dReal> startQuat(start[3],start[4],start[5],start[6]);
+    RaveVector<dReal> goalPos(goal[0],goal[1],goal[2]);
+    RaveVector<dReal> goalQuat(goal[3],goal[4],goal[5],goal[6]);
+
+    //read quaternion entries
+    vector<RaveVector<dReal>> quats;
+    ifstream gridinput;
+    gridinput.open("simplegrid.qua");
+    RaveVector<dReal> quat;
+    for (int i=0;i<72;i++){
+        gridinput>>quat.x;
+        gridinput>>quat.y;
+        gridinput>>quat.z;
+        gridinput>>quat.w;
+        quats.push_back(quat);
+    }
+
+    //find the closest grid to the start
+    RaveVector<dReal> newStart;
+
+    dReal minDStart = 10;
+    for (RaveVector<dReal>& qquat:quats){
+        if  (quatDistance(startQuat,qquat)<minDStart){
+            minDStart = quatDistance(startQuat,qquat);
+            newStart = qquat;
+        }
+    }
+    newStart.normalize4();
+    RaveTransform<dReal> transform;
+    transform.rot = newStart;
+    RaveTransform<dReal> transform2;
+    transform2.rot = startQuat;
+    transform = transform2.rotate(transform.inverse());
+    for (auto &quat : quats) {
+        RaveTransform<dReal> tt;
+        tt.rot = quat;
+        tt = transform.rotate(tt);
+        quat = tt.rot;
+        quat.normalize4();
+    }
+    dReal minDGoal = 10;
+    minDStart = 10;
+    int goalId;
+    int startId;
+    for (int i=0; i<quats.size();i++){
+       if  (quatDistance(goalQuat,quats[i])<minDGoal){
+            minDGoal = quatDistance(goalQuat,quats[i]);
+            goalId = i;
+       }
+       if  (quatDistance(startQuat,quats[i])<minDStart){
+            minDStart = quatDistance(startQuat,quats[i]);
+            startId = i;
+       }
+    }
+    goalQuat = quats[goalId];
+    startQuat = quats[startId];
+
+    //preprocessing quatdistance
+    vector<vector<dReal>> quatdist(quats.size(),vector<dReal>(quats.size(),0));
+    vector<vector<int>> reachable (quats.size());
+    for (int i=0;i<quats.size();i++){
+        for (int j=0;j<quats.size();j++){
+            quatdist[i][j] = i==j? 0 : quatDistance(quats[i], quats[j]) * 0.3;
+            if (quatdist[i][j]<0.17){
+                reachable[i].push_back(j);
+            }
+        }
+    }
+
+
+    dictKey target (goalPos,goalId);
+    dictKey init(startPos,startId);
+
+
+    dReal grid_size_x = 0.1;
+    dReal grid_size_y = 0.1;
+    dReal grid_size_z = 0.1;
+    vector<dReal> increments{grid_size_x,grid_size_y,grid_size_z};
+    vector<RaveVector<dReal>> coefs;
+    vector<dReal> distances;
+    RaveVector<dReal> coef(0,0,0);
+    vector<dReal> sel{-1,0,1};
+    for (dReal i:sel){
+        coef.x = i*grid_size_x;
+        for (dReal j:sel){
+            coef.y = j*grid_size_y;
+            for (dReal k:sel){
+                coef.z = k*grid_size_z;
+                if (coef.x!=0||coef.y!=0||coef.z!=0) {
+                    coefs.push_back(coef);
+                    distances.push_back(MATH_SQRT(coef.lengthsqr3()));
+                }
+            }
+        }
+    }
+
+    inittime += clock()-temptime;
+
+    temptime = clock();
+
+    //testRotationExtent
+ /*   dictKey test = init;
+    for (int id : reachable[init.quat]){
+        test.quat = id;
+        vector<dReal> dofValues = test.toVec(quats);
+        robot->SetActiveDOFValues(dofValues);
+        getchar();
+    }*/
+
+
+    priority_queue<shared_ptr<node>,vector<shared_ptr<node>>,compNodes> pq;
+    pq.push(shared_ptr<node>(new node(0,euclideanDistance(startPos,goalPos),startPos,startId,startPos,startId)));
+
+    updatepqtime += clock()-temptime;
+    bool found = false;
+
+    vector<GraphHandlePtr> handles;
+
+    unordered_map<dictKey,shared_ptr<node>,hash_fn> nodeDict;
+
+    unordered_set<dictKey,hash_fn> nocollision;
+    unordered_set<dictKey,hash_fn> incollision;
+
+
+    int expandNode = 0;
+
+    while (!pq.empty()){
+        temptime = clock();
+
+        shared_ptr<node> current = pq.top();
+        pq.pop();
+        updatepqtime += clock()-temptime;
+        temptime = clock();
+
+        bool dicthas = nodeDict.find(dictKey(current->pos,current->quat)) == nodeDict.end();
+        checkdictionarytime += clock()-temptime;
+
+        if (dicthas){
+
+            expandNode++;
+
+            nodeDict[dictKey(current->pos,current->quat)] = current;
+
+            handles.push_back(drawPoint(current->pos,env, RaveVector<dReal>(0,0,1,1)));
+            if (dictKey(current->pos,current->quat) == target){
+                found = true;
+                break;
+            }
+
+            for (unsigned int i=0;i<coefs.size();i++){
+                temptime = clock();
+                dictKey candidate(current->pos,current->quat);
+                RaveVector<dReal> coef = coefs[i];
+                candidate.pos.x = round((current->pos.x+coef.x)*10)/10;
+                candidate.pos.y = round((current->pos.y+coef.y)*10)/10;
+                candidate.pos.z = round((current->pos.z+coef.z)*10)/10;
+                expandnodetime += clock()-temptime;
+                for (int j :reachable[current->quat]) {
+                    candidate.quat = j;
+                    temptime = clock();
+                    bool dicthas = nodeDict.find(candidate) == nodeDict.end();
+                    checkdictionarytime += clock() - temptime;
+
+                    if (dicthas) {
+                        temptime = clock();
+                        bool collide;
+                        if (nocollision.find(candidate)!=nocollision.end()) collide = false;
+                        else if (incollision.find(candidate)!=incollision.end()) collide = true;
+                        else {
+                            vector<dReal> dofValues = candidate.toVec(quats);
+                            robot->SetActiveDOFValues(dofValues);
+                            collide = env->CheckCollision(robot);
+                            vertexcheck++;
+                            if (collide) incollision.insert(candidate);
+                            else nocollision.insert(candidate);
+                        }
+                        checkcollisontime += clock() - temptime;
+                        if (!collide) {
+                            temptime = clock();
+                            pq.push(shared_ptr<node> (new node(current->g + quatdist[j][current->quat] + distances[i],
+                                         euclideanDistance(candidate.pos, goalPos) +
+                                         quatdist[j][goalId],
+                                         current->pos, current->quat, candidate.pos, candidate.quat)));
+                            updatepqtime += clock() - temptime;
+                            num++;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+    vector<dictKey> result;
+
+    if  (found){
+        result.push_back(target);
+        while (!(target==init)){
+            target = dictKey(nodeDict[target]->previousPos,nodeDict[target]->previousQuat);
+            result.push_back(target);
+
+        };
+
+        cout<<"total valid nodes visited:"<<num<<endl;
+        cout<<"total vertex checked:"<<vertexcheck<<endl;
+        cout<<"total dictionary size: "<<nodeDict.size()<<endl;
+        cout<<"Final pq size: "<<pq.size()<<endl;
+        cout<<"Nodes expanded: "<<expandNode<<endl;
+        cout<<"Init time: "<<float(inittime)/CLOCKS_PER_SEC<<endl;
+        cout<<"Check Dict time: "<<float(checkdictionarytime)/CLOCKS_PER_SEC<<endl;
+        cout<<"Check Collison time: "<<float(checkcollisontime)/CLOCKS_PER_SEC<<endl;
+        cout<<"Update PQ time: "<<float(updatepqtime)/CLOCKS_PER_SEC<<endl;
+        cout<<"Expand node time: "<<float(expandnodetime)/CLOCKS_PER_SEC<<endl;
+
+       for (int i=result.size()-1;i>=0;i--){
+            vector<dReal> dofValues = result[i].toVec(quats);
+            robot->SetActiveDOFValues(dofValues);
+            if (i>0) {
+                handles.push_back(drawLineSegment(result[i].pos, result[i - 1].pos, env, RaveVector<dReal>(0, 0, 0, 1)));
+
+                getchar();
+            }
+        }
+
+       getchar();
+    }
+
+    return result;
+}
+
+vector<dictKey> torsoplanning_3D::findPathlazySP(EnvironmentBasePtr env, RobotBasePtr robot, vector<dReal> &goal){
+
+    int vertexcheck = 0;
+    int numiteration = 0;
+
+    vector<dReal> start;
+    robot->GetActiveDOFValues(start);
+    RaveVector<dReal> startPos(start[0],start[1],start[2]);
+    RaveVector<dReal> startQuat(start[3],start[4],start[5],start[6]);
+    RaveVector<dReal> goalPos(goal[0],goal[1],goal[2]);
+    RaveVector<dReal> goalQuat(goal[3],goal[4],goal[5],goal[6]);
+
+    //read quaternion entries
+    vector<RaveVector<dReal>> quats;
+    ifstream gridinput;
+    gridinput.open("simplegrid.qua");
+    RaveVector<dReal> quat;
+    for (int i=0;i<72;i++){
+        gridinput>>quat.x;
+        gridinput>>quat.y;
+        gridinput>>quat.z;
+        gridinput>>quat.w;
+        quats.push_back(quat);
+    }
+
+    //find the closest grid to the start
+    RaveVector<dReal> newStart;
+
+    dReal minDStart = 10;
+    for (RaveVector<dReal>& qquat:quats){
+        if  (quatDistance(startQuat,qquat)<minDStart){
+            minDStart = quatDistance(startQuat,qquat);
+            newStart = qquat;
+        }
+    }
+    newStart.normalize4();
+    RaveTransform<dReal> transform;
+    transform.rot = newStart;
+    RaveTransform<dReal> transform2;
+    transform2.rot = startQuat;
+    transform = transform2.rotate(transform.inverse());
+    for (auto &quat : quats) {
+        RaveTransform<dReal> tt;
+        tt.rot = quat;
+        tt = transform.rotate(tt);
+        quat = tt.rot;
+        quat.normalize4();
+    }
+    dReal minDGoal = 10;
+    minDStart = 10;
+    int goalId;
+    int startId;
+    for (int i=0; i<quats.size();i++){
+        if  (quatDistance(goalQuat,quats[i])<minDGoal){
+            minDGoal = quatDistance(goalQuat,quats[i]);
+            goalId = i;
+        }
+        if  (quatDistance(startQuat,quats[i])<minDStart){
+            minDStart = quatDistance(startQuat,quats[i]);
+            startId = i;
+        }
+    }
+    goalQuat = quats[goalId];
+    startQuat = quats[startId];
+
+    //preprocessing quatdistance
+    vector<vector<dReal>> quatdist(quats.size(),vector<dReal>(quats.size(),0));
+    vector<vector<int>> reachable (quats.size());
+    for (int i=0;i<quats.size();i++){
+        for (int j=0;j<quats.size();j++){
+            quatdist[i][j] = quatDistance(quats[i],quats[j])*0.3;
+            if (quatdist[i][j]<0.17){
+                reachable[i].push_back(j);
+            }
+        }
+    }
+
+
+    dictKey target (goalPos,goalId);
+    dictKey init(startPos,startId);
+
+
+    dReal grid_size_x = 0.1;
+    dReal grid_size_y = 0.1;
+    dReal grid_size_z = 0.1;
+    vector<dReal> increments{grid_size_x,grid_size_y,grid_size_z};
+    vector<RaveVector<dReal>> coefs;
+    vector<dReal> distances;
+    RaveVector<dReal> coef(0,0,0);
+    vector<dReal> sel{-1,0,1};
+    for (dReal i:sel){
+        coef.x = i*grid_size_x;
+        for (dReal j:sel){
+            coef.y = j*grid_size_y;
+            for (dReal k:sel){
+                coef.z = k*grid_size_z;
+                coefs.push_back(coef);
+                distances.push_back(MATH_SQRT(coef.lengthsqr3()));
+            }
+        }
+    }
+
+
+
+    bool collide = true;
+
+    random_device rd;
+    mt19937 g(rd());
+    vector<GraphHandlePtr> handles;
+
+
+    vector<dictKey> result;
+
+    clock_t eachtime = clock();
+
+    unordered_set<dictKey,hash_fn> nocollision;
+    unordered_set<dictKey,hash_fn> incollision;
+    while (collide) {
+        clock_t eachtime = clock();
+        handles.clear();
+        collide = false;
+        priority_queue<shared_ptr<node>,vector<shared_ptr<node>>,compNodes> pq;
+        pq.push(shared_ptr<node>(new node(0,euclideanDistance(startPos,goalPos),startPos,startId,startPos,startId)));
+        unordered_map<dictKey,shared_ptr<node>,hash_fn> nodeDict;
+
+        while (!pq.empty()) {
+            shared_ptr<node> current = pq.top();
+            pq.pop();
+
+            bool dicthas = nodeDict.find(dictKey(current->pos, current->quat)) == nodeDict.end();
+            if (dicthas) {
+                nodeDict[dictKey(current->pos, current->quat)] = current;
+
+                //handles.push_back(drawPoint(current.pos,env, RaveVector<dReal>(0,0,1,1)));
+                if (dictKey(current->pos, current->quat) == target) {
+                    break;
+                }
+
+                for (unsigned int i = 0; i < coefs.size(); i++) {
+                    dictKey candidate(current->pos, current->quat);
+                    RaveVector<dReal> coef = coefs[i];
+                    candidate.pos.x = round((current->pos.x + coef.x) * 10) / 10;
+                    candidate.pos.y = round((current->pos.y + coef.y) * 10) / 10;
+                    candidate.pos.z = round((current->pos.z + coef.z) * 10) / 10;
+                    for (int j :reachable[current->quat]) {
+                        candidate.quat = j;
+                        bool dicthas = nodeDict.find(candidate) == nodeDict.end();
+
+                        if (dicthas && incollision.find(candidate) == incollision.end()) {
+                            pq.push(shared_ptr<node>(new node(current->g + quatdist[j][current->quat] + distances[i],
+                                         euclideanDistance(candidate.pos, goalPos) + quatdist[j][goalId],
+                                         current->pos, current->quat, candidate.pos, candidate.quat)));
+                        }
+                    }
+                }
+
+            }
+        }
+
+        result.clear();
+
+        dictKey trans = target;
+        result.push_back(trans);
+        while (!(trans == init)) {
+            trans = dictKey(nodeDict[trans]->previousPos, nodeDict[trans]->previousQuat);
+            result.push_back(trans);
+
+        };
+
+/*
+        for (int i=result.size()-1;i>=0;i--){
+            vector<dReal> dofValues = result[i].toVec(quats);
+            robot->SetActiveDOFValues(dofValues);
+            if (i>0) {
+                handles.push_back(drawLineSegment(result[i].pos, result[i - 1].pos, env, RaveVector<dReal>(0, 0, 0, 1)));
+            }
+        }
+*/
+
+
+        vector<int> permutation(result.size());
+        iota(permutation.begin(),permutation.end(),0);
+        shuffle(permutation.begin(),permutation.end(),g);
+
+        for (int p:permutation){
+            if (nocollision.find(result[p])!=nocollision.end()) continue;
+            else{
+                vector<dReal> dofValues = result[p].toVec(quats);
+                robot->SetActiveDOFValues(dofValues);
+                robot->SetActiveDOFValues(dofValues);
+                vertexcheck++;
+                if (env->CheckCollision(robot)){
+                    incollision.insert(result[p]);
+                    collide = true;
+                    break;
+                }
+                else{
+                    nocollision.insert(result[p]);
+                }
+            }
+        }
+        eachtime = clock()-eachtime;
+        cout<<"Eachtime: "<<float(eachtime)/CLOCKS_PER_SEC<<endl;
+        numiteration ++;
+    }
+
+    cout<<"total iteration:"<<numiteration<<endl;
+
+    cout<<"total vertex checked:"<<vertexcheck<<endl;
+    for (int i=result.size()-1;i>=0;i--){
+        vector<dReal> dofValues = result[i].toVec(quats);
+        robot->SetActiveDOFValues(dofValues);
+        if (i>0) {
+            handles.push_back(drawLineSegment(result[i].pos, result[i - 1].pos, env, RaveVector<dReal>(0, 0, 0, 1)));
+        }
+    }
+
+    return result;
+}
+
+
+
+TrajectoryBasePtr torsoplanning_3D::ConvertPathToTrajectory(RobotBasePtr robot,vector<dictKey>& path, vector<RaveVector<dReal>>& quats){
+    TrajectoryBasePtr traj = RaveCreateTrajectory(GetEnv(),"");
+    traj->Init(robot->GetActiveConfigurationSpecification());
+    for (size_t i=0;i<path.size();i++){
+        traj->Insert(i,path[path.size()-i-1].toVec(quats));
+    }
+    vector<dReal> maxVelocities{1,1,1,1,1,1,1};
+    vector<dReal> maxAccelerations{5,5,5,5,5,5,1};
+    RetimeAffineTrajectory(traj,maxVelocities,maxAccelerations);
+    return traj;
+}
+
+/*
+InterfaceBasePtr CreateInterfaceValidated(InterfaceType type, const std::string& interfacename, std::istream& sinput, EnvironmentBasePtr penv)
+{
+    if( type == PT_Module && interfacename == "torsoplanning_3d" ) {
+        return InterfaceBasePtr(new torsoplanning_3D(penv));
+    }
+    return InterfaceBasePtr();
+}
+void GetPluginAttributesValidated(PLUGININFO& info)
+{
+    info.interfacenames[PT_Module].push_back("torsoplanning_3d");
+}
+OPENRAVE_PLUGIN_API void DestroyPlugin()
+{
+    RAVELOG_INFO("destroying plugin\n");
+}
+
+*/

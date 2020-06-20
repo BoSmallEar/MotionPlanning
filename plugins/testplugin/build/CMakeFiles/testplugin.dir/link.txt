@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -L/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -shared -Wl,-soname,libtestplugin.so -o libtestplugin.so CMakeFiles/testplugin.dir/testplugin.cpp.o  -L/usr/local/lib -lopenrave0.9 -Wl,-rpath,/usr/local/lib: 

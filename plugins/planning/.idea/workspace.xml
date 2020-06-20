@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="planning" targetName="planning" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9a190474-6282-4d78-b0ec-8b9cb0bc6837" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scenes/hole.env.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.5.1/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeError.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/relink.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/planning.dir/src/torsoplanning_3D.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/src/testmain.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/testmain.dir/src/torsoplanning_3D.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libplanning.so" beforeDir="false" afterPath="$PROJECT_DIR$/build/libplanning.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/testmain" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/planning.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/src/testmain.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/src/testmain.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/testmain.dir/src/torsoplanning_3D.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/planning.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/planning.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/scenes/border.env.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/scenes/border.env.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/testmain" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/testmain" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/planningtorso_3D.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/planningtorso_A*.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/border.env.xml" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/border.env.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testmain.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/testmain.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/torsoplanning_3D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/torsoplanning_A*.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/3.5.1/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/3.5.1/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/CMakeFiles/testplugin.dir/relink.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/build/libtestplugin.so" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/build/libtestplugin.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testplugin/testplugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../testplugin/testplugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../scenes/border.env.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../scenes/border.env.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testPI.py" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/torsoplanning_A*.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="248" column="69" lean-forward="true" selection-start-line="248" selection-start-column="69" selection-end-line="248" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/testmain.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1245">
+              <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/planningtorso_A*.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="103" column="2" lean-forward="true" selection-start-line="103" selection-start-column="2" selection-end-line="103" selection-end-column="2" />
+              <folding>
+                <element signature="e#58#88#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>compNode</find>
+      <find>comp</find>
+      <find>HANDLES.PUSH</find>
+      <find>checkdictionarytime</find>
+      <find>u</find>
+      <find>upda</find>
+      <find>update</find>
+      <find>0.60.600</find>
+      <find>0.60.60.30</find>
+      <find>0.60.300</find>
+      <find>num</find>
+      <find>generate</find>
+      <find>cout</find>
+      <find>double</find>
+      <find>int</find>
+      <find>cgal</find>
+      <find>auto</find>
+      <find>target</find>
+      <find>sample_normal</find>
+      <find>costfun</find>
+      <find>costfuntime</find>
+      <find>handles</find>
+      <find>drawPoint</find>
+      <find>handle</find>
+      <find>expandNode</find>
+      <find>vertexcheck</find>
+      <find>clock()</find>
+      <find>quat_weight</find>
+      <find>getchar</find>
+      <find>result</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>dReal</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/scenes/hole.xml" />
+        <option value="$PROJECT_DIR$/scenes/border.env.xml" />
+        <option value="$PROJECT_DIR$/scenes/hole.env.xml" />
+        <option value="$PROJECT_DIR$/src/torsoplanning_3D.cpp" />
+        <option value="$PROJECT_DIR$/include/planningtorso_3D.hpp" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/scenes/border.env.xml" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/scenes/hole.env.xml" />
+        <option value="$PROJECT_DIR$/src/testmain.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/include/planningtorso_A*.hpp" />
+        <option value="$PROJECT_DIR$/src/torsoplanning_A*.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="172" />
+    <option name="y" value="16" />
+    <option name="width" value="1400" />
+    <option name="height" value="1014" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="planning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="planning" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="planning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="planning" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="planning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="planning" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="planning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="planning" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="planning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="planning" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="planning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="planning" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ttt" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cmake-build-debug/scenes" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="planning" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="planning" TARGET_NAME="planning" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a190474-6282-4d78-b0ec-8b9cb0bc6837" name="Default Changelist" comment="" />
+      <created>1549587401187</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1549587401187</updated>
+      <workItem from="1549587402402" duration="2238000" />
+      <workItem from="1549589894054" duration="10032000" />
+      <workItem from="1549640571751" duration="3414000" />
+      <workItem from="1549645878453" duration="175000" />
+      <workItem from="1549647495314" duration="2638000" />
+      <workItem from="1549655019544" duration="1830000" />
+      <workItem from="1549922317835" duration="888000" />
+      <workItem from="1549945105064" duration="5118000" />
+      <workItem from="1549950399222" duration="535000" />
+      <workItem from="1549981978806" duration="1982000" />
+      <workItem from="1549986107472" duration="2389000" />
+      <workItem from="1550341111142" duration="10991000" />
+      <workItem from="1550427834179" duration="4836000" />
+      <workItem from="1550446195879" duration="58000" />
+      <workItem from="1550507560329" duration="11066000" />
+      <workItem from="1550856298397" duration="906000" />
+      <workItem from="1550857209250" duration="9760000" />
+      <workItem from="1550937410061" duration="6339000" />
+      <workItem from="1550957617013" duration="3997000" />
+      <workItem from="1552344966538" duration="2743000" />
+      <workItem from="1552450690730" duration="3701000" />
+      <workItem from="1552535699643" duration="4353000" />
+      <workItem from="1552767800199" duration="1311000" />
+      <workItem from="1552869815373" duration="4950000" />
+      <workItem from="1552926086707" duration="8646000" />
+      <workItem from="1553100096228" duration="6741000" />
+      <workItem from="1553184833867" duration="4382000" />
+      <workItem from="1553266505501" duration="6251000" />
+      <workItem from="1553368692170" duration="6805000" />
+      <workItem from="1553375527112" duration="236000" />
+      <workItem from="1553375838070" duration="8869000" />
+      <workItem from="1553623154894" duration="1535000" />
+      <workItem from="1554167450690" duration="1182000" />
+      <workItem from="1554172771614" duration="1188000" />
+      <workItem from="1554216152470" duration="1320000" />
+      <workItem from="1554326715234" duration="9000" />
+      <workItem from="1554327325342" duration="1235000" />
+      <workItem from="1554394528865" duration="3378000" />
+      <workItem from="1554404981474" duration="3813000" />
+      <workItem from="1554420693980" duration="16463000" />
+      <workItem from="1554480896802" duration="6156000" />
+      <workItem from="1554661449890" duration="292000" />
+      <workItem from="1555361077400" duration="7980000" />
+      <workItem from="1555692232252" duration="1636000" />
+      <workItem from="1556240528189" duration="161000" />
+      <workItem from="1556666759263" duration="11092000" />
+      <workItem from="1556734739352" duration="13049000" />
+      <workItem from="1556749155843" duration="564000" />
+      <workItem from="1556750969674" duration="23000" />
+      <workItem from="1556751092841" duration="3000" />
+      <workItem from="1556752673610" duration="7000" />
+      <workItem from="1556754109261" duration="170000" />
+      <workItem from="1556821997281" duration="4000" />
+      <workItem from="1556827326587" duration="4000" />
+      <workItem from="1556828105237" duration="2111000" />
+      <workItem from="1556839439339" duration="523000" />
+      <workItem from="1556845085351" duration="3385000" />
+      <workItem from="1556899507735" duration="1725000" />
+      <workItem from="1557247888474" duration="2152000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="219340000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="64" y="-11" width="1617" height="1062" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25621414" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.15426105" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.20711975" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4390507" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.48867315" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32901832" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32901832" />
+      <window_info anchor="bottom" id="CMake" order="12" visible="true" weight="0.1995685" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21542384" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.15426105" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30420712" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.44444445" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.40021574" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32901832" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32901832" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.30420712" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="CidrExceptionBreakpoint">
+          <properties />
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="nodeDict" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>nodeDict</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>nodeDict[target]</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>diff_threshold</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile" />
+    <entry file="file:///usr/local/include/openrave-0.9/openrave/plugin.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="90" column="7" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../testplugin/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/openrave/src/libopenrave/libopenrave.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="422" selection-start-line="422" selection-end-line="422" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/openrave/src/libopenrave/robot.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="683" selection-start-line="683" selection-end-line="683" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/thread/detail/thread.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="766" selection-start-line="766" selection-end-line="766" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="143" selection-start-line="143" selection-end-line="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/thread/pthread/mutex.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2534">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/openrave/include/openrave/geometry.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="444" selection-start-line="444" selection-end-line="444" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/openrave/plugins/qtcoinrave/item.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="488" selection-start-line="488" selection-end-line="488" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/scenes/myscene.env.xml" />
+    <entry file="file:///usr/include/c++/5/ext/new_allocator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/openrave-0.9/openrave/geometry.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="501" selection-start-line="501" selection-end-line="501" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/hashtable_policy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="984" selection-start-line="984" selection-end-line="984" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/thread/pthread/pthread_mutex_scoped_lock.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/thread/pthread/shared_mutex.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="185" selection-start-line="185" selection-end-line="185" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/myscene.env.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/stl_queue.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="471" selection-start-line="471" selection-end-line="471" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/openrave/plugins/qtcoinrave/qtcoinrave.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/hashtable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1432" selection-start-line="1432" selection-end-line="1432" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/openrave/plugins/oderave/odecollision.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3510">
+          <caret line="234" selection-start-line="234" selection-end-line="234" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/hole.env.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/boost/smart_ptr/shared_ptr.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="647" selection-start-line="647" selection-end-line="647" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/scenes/tunnel_env.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/border.env.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/scenes/hole.env.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="654" selection-start-line="654" selection-end-line="654" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/bits/vector.tcc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/openrave-0.9/openrave/openrave.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="2566" selection-start-line="2566" selection-end-line="2566" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/CGAL-4.14/include/CGAL/assertions_impl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2865">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/openrave/plugins/qtcoinrave/qtcoinviewer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="373" selection-start-line="373" selection-end-line="373" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/r_arm.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6810" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/l_leg.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13575" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/l_arm.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7080" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/r_leg.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/openrave/include/openrave/openrave.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="2566" selection-start-line="2566" selection-end-line="2566" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/scenes/border.env.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FindOpenRAVE.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testmain.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/planningtorso_A*.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="103" column="2" lean-forward="true" selection-start-line="103" selection-start-column="2" selection-end-line="103" selection-end-column="2" />
+          <folding>
+            <element signature="e#58#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/torsoplanning_A*.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="248" column="69" lean-forward="true" selection-start-line="248" selection-start-column="69" selection-end-line="248" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

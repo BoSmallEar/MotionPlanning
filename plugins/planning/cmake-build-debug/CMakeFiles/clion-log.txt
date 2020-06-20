@@ -1,0 +1,23 @@
+/home/zzliu/Downloads/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/zzliu/Documents/3D_planning/plugins/planning
+-- Using header-only CGAL
+-- Targetting Unix Makefiles
+-- Using /usr/bin/c++ compiler.
+-- __cplusplus is 201402
+--   --> Do not link with Boost.Thread
+-- Boost version: 1.58.0
+-- Boost include dirs: /usr/include
+-- Boost libraries:    
+-- Using gcc version 4 or later. Adding -frounding-math
+-- Boost version: 1.58.0
+-- Found the following Boost libraries:
+--   iostreams
+--   python
+--   thread
+--   system
+--   regex
+--   chrono
+--   date_time
+--   atomic
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/zzliu/Documents/3D_planning/plugins/planning/cmake-build-debug
